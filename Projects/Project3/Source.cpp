@@ -18,6 +18,5 @@ int main() {
 	delete dquad;
 	delete drect;
 	delete drect1;
-
 	return 0;
 }
