@@ -5,7 +5,7 @@ class Shape {
 
 public:
 	Shape() {
-		cout << "Shape " << this <<  " was created" << endl;
+		cout << "Shape " << this << " was created" << endl;
 	}
 	virtual float Square() {
 		cout << "Shape class method" << endl;

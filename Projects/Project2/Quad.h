@@ -5,7 +5,7 @@ class Quad : public Rectangle {
 
 public:
 
-	Quad(float x) : Rectangle(x,x) {
+	Quad(float x) : Rectangle(x, x) {
 	}
 
 	Quad(const Quad& quad) : Rectangle(quad) {
