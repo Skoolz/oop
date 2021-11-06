@@ -13,14 +13,17 @@ public:
 
 	Rectangle() {
 		size = Vector2(0, 0);
+		cout << "Rectangle() " << this << endl;
 	}
 
 	Rectangle(float x, float y) {
 		size = Vector2(x, y);
+		cout << "Rectangle(float x, float y) " << this << endl;
 	}
 
 	Rectangle(const Rectangle& rect) {
 		this->size = rect.size;
+		cout << "Rectangle(const Rectangle& rect) " << this << endl;
 	}
 
 	void SetSize(Vector2 new_size) {

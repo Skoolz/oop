@@ -11,17 +11,17 @@ public:
 	Point() {
 		x = 0;
 		y = 0;
-		cout << "Point with adress:" << this << ". Constructor 0" << endl;
+		cout << "Point() " << this << endl;
 	}
 	Point(int x, int y) {
 		this->x = x;
 		this->y = y;
-		cout << "Point with adress:" << this << ". Constructor 1" << endl;
+		cout << "Point(int x, int y) " << this << endl;
 	}
 	Point(const Point& point) {
 		this->x = point.x;
 		this->y = point.y;
-		cout << "Point with adress:" << this << ". Constructor 2" << endl;
+		cout << "Point(const Point& point) " << this << endl;
 	}
 	~Point() {
 		cout << "Point with adress:" << this << " was deleted" << endl;

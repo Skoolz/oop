@@ -5,10 +5,16 @@ class Quad : public Rectangle {
 
 public:
 
+	Quad():Rectangle() {
+		cout << "Quad() " << this << endl;
+	}
+
 	Quad(float x) : Rectangle(x, x) {
+		cout << "Quad(x) " << this << endl;
 	}
 
 	Quad(const Quad& quad) : Rectangle(quad) {
+		cout << "Quad(const Quad& quad) " << this << endl;
 	}
 
 	void SetSize(float x) {
