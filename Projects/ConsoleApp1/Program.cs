@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
@@ -11,19 +12,33 @@ namespace ConsoleApp1
         {
 
             DynamicList<object> list = new DynamicList<object>();
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
-            list.Add(5);
-            list.Add(6);
-            list.Add(7);
-            foreach (var item in list) Console.WriteLine(item);
-            Console.WriteLine();
-            list.Remove(2);
-            foreach (var item in list) Console.WriteLine(item);
-            Console.WriteLine(list.Count);
+            int count = Convert.ToInt32(Console.ReadLine());
+            Random rnd = new Random();
+            for(int i = 0; i < count; i++)
+            {
+                int choose = rnd.Next(4);
+                switch (choose)
+                {
+                    case 0:list.Add(rnd.Next(500)); break;
+                    case 1:list.Add(RandomString(rnd.Next(10))); break;
+                    case 2:list.Add(new TestClass()); break;
+                    case 3:list.Add(new BaseTestClass()); break;
+                }
+            }
+            foreach(object _object in list)
+            {
+                Console.WriteLine($"|object type:{_object.GetType()}| "+list.RandomStringFunc(_object));
+                //list.DefaultFunc(_object);
+            }
 
+        }
+
+        public static string RandomString(int length)
+        {
+            string str="";
+            Random rnd = new Random();
+            for (int i = 0; i < length; i++) str += (char)rnd.Next('A', 'Z');
+            return str;
         }
 
     }

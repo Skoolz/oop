@@ -23,6 +23,11 @@ public:
 		this->y = point.y;
 		cout << "Point(const Point& point) " << this << endl;
 	}
+	Point(const Point* point) {
+		this->x = point->x;
+		this->y = point->y;
+		cout << "Point*(const Point& point) " << this << endl;
+	}
 	~Point() {
 		cout << "Point with adress:" << this << " was deleted" << endl;
 	}
@@ -41,4 +46,17 @@ public:
 	int getY() {
 		return y;
 	}
+	void func1(Point point) {
+		point.x = 4;
+		cout << "fun1 point" << endl;
+	}
+	void func2(Point& point) {
+		point.x = 4;
+		cout << "func1 &point" << endl;
+	}
+	void func3(Point* point) {
+		cout << &point << endl;
+		point->x = 5;
+	}
+
 };

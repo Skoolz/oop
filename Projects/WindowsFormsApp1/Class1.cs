@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 
-namespace ConsoleApp1
+namespace CustomList
 {
 
     public class Node<T>
@@ -123,7 +123,7 @@ namespace ConsoleApp1
                         start = node.next;
                     }
                     
-                    if(prev!=null && node.next!=null)
+                    if(prev!=null)
                     {
                         prev.next = node.next;
                     }
@@ -157,5 +157,6 @@ namespace ConsoleApp1
                 }
             }
         }
+
     }
 }
