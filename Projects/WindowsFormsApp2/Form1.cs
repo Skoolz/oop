@@ -12,38 +12,30 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
-        ModelB b;
-        ModelA a;
-        ModelC c;
+        Model m = new Model();
 
         public Form1()
         {
             InitializeComponent();
 
-            a = new ModelA();
-            c = new ModelC();
-            b = new ModelB(a, c);
+            m.OnValueChangeA += Numeric_1_change_value;
+            m.OnValueChangeA += TextBox_1_change_value;
+            m.OnValueChangeA += Trace_1_change_value;
 
-            a.OnValueChange += Numeric_1_change_value;
-            a.OnValueChange += TextBox_1_change_value;
-            a.OnValueChange += Trace_1_change_value;
-            a.OnValueChange += c.ModelAChange;
-            a.OnValueChange += b.ModelAChange;
+            m.OnValueChangeB += Numeric_2_change_value;
+            m.OnValueChangeB += TextBox_2_change_value;
+            m.OnValueChangeB += Trace_2_change_value;
 
-            b.OnValueChange += Numeric_2_change_value;
-            b.OnValueChange += TextBox_2_change_value;
-            b.OnValueChange += Trace_2_change_value;
+            m.OnValueChangeC += Numeric_3_change_value;
+            m.OnValueChangeC += TextBox_3_change_value;
+            m.OnValueChangeC += Trace_3_change_value;
 
-            c.OnValueChange += Numeric_3_change_value;
-            c.OnValueChange += TextBox_3_change_value;
-            c.OnValueChange += Trace_3_change_value;
-            c.OnValueChange += a.ModelCChange;
-            c.OnValueChange += b.ModelCChange;
-
-            a.SetValue(0);
-            b.SetValue(0);
-            c.SetValue(0);
+            m.SetValueA(0);
+            m.SetValueB(0);
+            m.SetValueC(0);
         }
+
+       
 
         public void Numeric_1_change_value(int value)
         {
@@ -87,17 +79,17 @@ namespace WindowsFormsApp2
         private void textBox1_TextChanged(object sender, KeyEventArgs e)
         {
             if(e.KeyCode==Keys.Enter)
-            a.SetValue(Convert.ToInt32(textBox1.Text));
+            m.SetValueA(Convert.ToInt32(textBox1.Text));
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            a.SetValue(Convert.ToInt32(numericUpDown1.Value));
+            m.SetValueA(Convert.ToInt32(numericUpDown1.Value));
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            a.SetValue(trackBar1.Value);
+            m.SetValueA(trackBar1.Value);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -108,33 +100,33 @@ namespace WindowsFormsApp2
         private void textBox2_TextChanged(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                b.SetValue(Convert.ToInt32(textBox2.Text));
+                m.SetValueB(Convert.ToInt32(textBox2.Text));
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            b.SetValue(Convert.ToInt32(numericUpDown2.Value));
+            m.SetValueB(Convert.ToInt32(numericUpDown2.Value));
         }
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            b.SetValue(trackBar2.Value);
+            m.SetValueB(trackBar2.Value);
         }
 
         private void textBox3_TextChanged(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                c.SetValue(Convert.ToInt32(textBox3.Text));
+                m.SetValueC(Convert.ToInt32(textBox3.Text));
         }
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
-            c.SetValue(Convert.ToInt32(numericUpDown3.Value));
+            m.SetValueC(Convert.ToInt32(numericUpDown3.Value));
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
-            c.SetValue(trackBar3.Value);
+            m.SetValueC(trackBar3.Value);
         }
     }
 }
